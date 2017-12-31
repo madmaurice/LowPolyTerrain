@@ -43,10 +43,8 @@ public struct NoiseMap
             octaveOffsets[i] = new Vector2(offsetX, offsetY);
         }
     
-        /*
         float halfWidth = width / 2f;
         float halfHeight = height / 2f;
-        */
 
         float maxNoiseHeight = float.MinValue;
         float minNoiseHeight = float.MaxValue;
@@ -62,8 +60,8 @@ public struct NoiseMap
                 for (int i = 0; i < octaves; i++)
                 {
                     var ocatveOffset = octaveOffsets[i];
-                    float sampleX = x / scale * frequency + ocatveOffset.x;
-                    float sampleY = y / scale * frequency + ocatveOffset.y;
+                    float sampleX = (x-halfWidth) / scale * frequency + ocatveOffset.x;
+                    float sampleY = (y-halfHeight) / scale * frequency + ocatveOffset.y;
 
                     // *2 and -1 to get a range of [-1, 1]
                     // This gives a better noise across octaves since noiseHeight can be subtracted < 0
