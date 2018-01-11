@@ -153,15 +153,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fead8ad82f70245807ca1eff95c8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoUpdate: 1
   width: 100
   height: 100
-  noiseScale: 1
+  noiseScale: 25.5
   octaves: 2
   persistance: 0.5
   lacunarity: 4.72
-  seed: 34
+  seed: 28
   offset: {x: 0, y: 0}
+  regions:
+  - name: Water
+    height: 0
+    colour: {r: 0.042387538, g: 0.35576308, b: 0.7205882, a: 0}
+  - name: Sand
+    height: 0.2
+    colour: {r: 0.9338235, g: 0.738251, b: 0.52870893, a: 0}
+  - name: Grass
+    height: 0.4
+    colour: {r: 0.0909796, g: 0.7352941, b: 0.0054065795, a: 0}
+  - name: Rock
+    height: 0.6
+    colour: {r: 0.42647058, g: 0.30068964, b: 0.12856834, a: 0}
+  - name: Snow
+    height: 0.85
+    colour: {r: 1, g: 1, b: 1, a: 0}
 --- !u!4 &1183685527
 Transform:
   m_ObjectHideFlags: 0

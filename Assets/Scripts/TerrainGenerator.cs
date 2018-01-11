@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class TerrainGenerator : MonoBehaviour
 {
-    public bool autoUpdate;
-
     public int width;
     public int height;
     public float noiseScale;
@@ -17,12 +15,11 @@ public class TerrainGenerator : MonoBehaviour
     public int seed;
     public Vector2 offset;
 
-    public void DrawNoiseMap()
-    {
-        var noiseMap = NoiseMap.Generate(width, height, seed, noiseScale, octaves, persistance, lacunarity, offset);
+    public TerrainType[] regions;
 
-        var display = FindObjectOfType<TerrainDisplay>();
-        display.DrawNoiseMap(noiseMap);
+    public NoiseMap GenerateNoiseMap()
+    {
+        return NoiseMap.Generate(width, height, seed, noiseScale, octaves, persistance, lacunarity, offset);
     }
 
     // Call automatically when a script variables is changed in the inspector
@@ -40,5 +37,12 @@ public class TerrainGenerator : MonoBehaviour
         if (octaves < 0)
             octaves = 0;
     }
+}
 
+[System.Serializable]
+public struct TerrainType
+{
+    public string name;
+    public float height;
+    public Color colour;
 }
